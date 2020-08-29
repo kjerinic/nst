@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Nov smer</h2>
+  <form [formGroup]="moduleFormGroup">
+    <mat-form-field appearance="standard">
+      <mat-label> Naziv smera</mat-label>
+      <input matInput type="text" formControlName="Name">
+      <mat-error *ngIf="hasError('required', 'Name')">Obavezno je uneti naziv.</mat-error>
+      <mat-error *ngIf="hasError('pattern', 'Name')">Neispravan format unetih podataka.</mat-error>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button (click)="addModule()" [disabled]="moduleFormGroup.invalid">Dodaj smer</button>
+  </form>
+
+</div>
+
+<hr>
+<div class="modules-container">
+  <button class="show-all-modules" mat-flat-button (click)="showAllModules()">Prikaži sve smerove</button>
+  <div class="show-all-modules">
+    <mat-card *ngFor="let module of allModules">
+      <span>{{module.name}}</span>
+    </mat-card>
+  </div>
+</div>

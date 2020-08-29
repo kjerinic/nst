@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <small *ngIf="invalidLoginMsg">{{ invalidLoginMsg }}</small>
+  <form [formGroup]="loginForm">
+    <mat-form-field appearance="standard">
+      <mat-label> Korisničko ime:</mat-label>
+      <input matInput type="text" formControlName="username">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+      <mat-label> Lozinka:</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button (click)="logIn()" [disabled]="loginForm.invalid">Prijavi se</button>
+  </form>
+</div>

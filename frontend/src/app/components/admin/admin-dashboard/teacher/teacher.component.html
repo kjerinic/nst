@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Nov nastavnik</h2>
+  <form [formGroup]="teacherFormGroup">
+    <mat-form-field appearance="standard">
+      <mat-label> Ime </mat-label>
+      <input matInput type="text" formControlName="FirstName">
+      <mat-error *ngIf="hasError('required', 'FirstName')">Obavezno je uneti ime.</mat-error>
+      <mat-error *ngIf="hasError('pattern', 'FirstName')">Neispravan format unetih podataka.</mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="standard">
+      <mat-label> Prezime </mat-label>
+      <input matInput type="text" formControlName="LastName">
+      <mat-error *ngIf="hasError('required', 'LastName')">Obavezno je uneti prezime.</mat-error>
+      <mat-error *ngIf="hasError('pattern', 'LastName')">Neispravan format unetih podataka.</mat-error>
+    </mat-form-field>
+
+
+<!--    <mat-form-field appearance="standard">-->
+<!--      <mat-label>Titula</mat-label>-->
+<!--      <mat-select formControlName="AcademicTitle">-->
+<!--        <mat-option *ngFor="let title of titles" [value]="title">-->
+<!--          {{title}}-->
+<!--        </mat-option>-->
+<!--      </mat-select>-->
+<!--      <mat-error *ngIf="hasError('required', 'AcademicTitle')">Obavezno je odabrati titulu.</mat-error>-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+
+<!--    <mat-form-field appearance="standard">-->
+<!--      <mat-label>Zvanje</mat-label>-->
+<!--      <mat-select formControlName="AcademicRank">-->
+<!--        <mat-option *ngFor="let rank of ranks" [value]="rank">-->
+<!--          {{rank}}-->
+<!--        </mat-option>-->
+<!--      </mat-select>-->
+<!--      <mat-error *ngIf="hasError('required', 'AcademicRank')">Obavezno je odabrati zvanje.</mat-error>-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+
+    <button mat-raised-button (click)="addTeacher()" [disabled]="teacherFormGroup.invalid">Dodaj nastavnika</button>
+  </form>
+
+</div>
+<hr>
+<div class="teachers-container">
+  <button class="show-all-teachers" mat-flat-button (click)="showAllTeachers()">Prikaži sve nastavnike</button>
+  <div class="show-all-teachers">
+    <mat-card *ngFor="let teacher of allTeachers">
+      <span>{{teacher.lastName}}, {{teacher.firstName}}</span>
+<!--      <span>{{teacher.AcademicRank}}</span>-->
+    </mat-card>
+  </div>
+</div>

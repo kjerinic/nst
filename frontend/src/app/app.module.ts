@@ -20,12 +20,28 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormComponent } from './components/form/form.component';
+import { NavbarComponent } from './components/admin/navbar/navbar.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { AdminLogoutComponent } from './components/admin/admin-logout/admin-logout.component';
+import { TeacherComponent } from './components/admin/admin-dashboard/teacher/teacher.component';
+import { ModuleComponent } from './components/admin/admin-dashboard/module/module.component';
+import { SubjectComponent } from './components/admin/admin-dashboard/subject/subject.component';
+import { DashboardOverviewComponent } from './components/admin/admin-dashboard/dashboard-overview/dashboard-overview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomePageComponent,
-    FormComponent
+    FormComponent,
+    NavbarComponent,
+    AdminDashboardComponent,
+    AdminLoginComponent,
+    AdminLogoutComponent,
+    TeacherComponent,
+    ModuleComponent,
+    SubjectComponent,
+    DashboardOverviewComponent
   ],
   imports: [
     BrowserModule,

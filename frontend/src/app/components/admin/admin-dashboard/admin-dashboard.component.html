@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <div class="sidenav">
+      <button mat-flat-button (click)="showAddTeacher()">Dodaj nastavnika</button>
+      <button mat-flat-button (click)="showAddSubject()">Dodaj predmet</button>
+      <button mat-flat-button (click)="showAddModule()">Dodaj smer</button>
+      <hr>
+      <button mat-flat-button (click)="showEvaluationOverview()" color="primary">Rezultati ankete</button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

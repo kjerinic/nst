@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Rezultati ankete</h2>
+
+  <div class="teachers-container">
+    <p>Kliknite na nastavnika kako biste videli njene/njegove rezultate iz ankete</p>
+    <div class="show-all-teachers">
+      <mat-card *ngFor="let teacher of allTeachers" (click)="showEvaluationResults(teacher.id)">
+        <span>{{teacher.lastName}}, {{teacher.firstName}}</span>
+<!--        <span>{{teacher.AcademicRank}}</span>-->
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="teacherEvaluationOverview" class="evaluation-container">
+  <h3>Pregled rezultata za {{teacherEvaluationOverview.TeacherName}}</h3>
+  <mat-card>
+    <h4>Prosečna ocena: </h4>
+    {{teacherEvaluationOverview.AverageQuestionGrade}}
+  </mat-card>
+  <div class="comments-container">
+    <div *ngIf="teacherEvaluationOverview.Comments.length > 0" class="evaluation-overview-comments">
+      <p>Komentari:</p>
+      <mat-card *ngFor="let comment of teacherEvaluationOverview.Comments">
+        <span>{{comment}}</span>
+      </mat-card>
+    </div>
+  </div>
+</div>

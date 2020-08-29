@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Nov predmet</h2>
+  <form [formGroup]="subjectFormGroup">
+    <mat-form-field appearance="standard">
+      <mat-label> Naziv predmeta</mat-label>
+      <input matInput type="text" formControlName="SubjectName">
+      <mat-error *ngIf="hasError('required', 'SubjectName')">Obavezno je uneti naziv.</mat-error>
+      <mat-error *ngIf="hasError('pattern', 'SubjectName')">Neispravan format unetih podataka.</mat-error>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button (click)="addSubject()" [disabled]="subjectFormGroup.invalid">Dodaj predmet</button>
+  </form>
+
+</div>
+
+<hr>
+<div class="subjects-container">
+  <button class="show-all-subjects" mat-flat-button (click)="showAllSubjects()">Prikaži sve predmete</button>
+  <div class="show-all-subjects">
+    <mat-card *ngFor="let subject of allSubjects">
+      <span>{{subject.name}}</span>
+    </mat-card>
+  </div>
+</div>
