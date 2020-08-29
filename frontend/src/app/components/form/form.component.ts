@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -7,6 +7,7 @@ import {Module} from '../../domain/Module';
 import {Subject} from '../../domain/Subject';
 import {Teacher} from '../../domain/Teacher';
 import {FormService} from '../../services/form.service';
+import {checkFormGroupErrors} from '../../utils/formUtils';
 
 @Component({
   selector: 'app-form',
@@ -94,9 +95,7 @@ export class FormComponent implements OnInit {
   }
 
   hasError(error: string, control: string) {
-    if (this.evalFormGroup.controls[control].touched) {
-      return this.evalFormGroup.controls[control].hasError(error);
-    }
+    return checkFormGroupErrors(this.evalFormGroup, error, control);
   }
 
   private formValueToDTO(formObject: FormGroup): EvaluationForm {
