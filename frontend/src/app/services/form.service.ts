@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Module} from '../domain/Module';
@@ -10,7 +10,8 @@ import {EvaluationForm} from '../domain/EvaluationForm';
   providedIn: 'root'
 })
 export class FormService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   private getUrl(functionName: string): string {
     const url = 'http://localhost:8080/';
@@ -33,10 +34,6 @@ export class FormService {
   }
 
   saveEvaluationForm(evaluationForm: EvaluationForm): Observable<any> {
-    const url = this.getUrl('???');
-    const body = {
-      evaluationForm
-    };
-    return this.http.post<any>(url, body);
+    return this.http.post<boolean>(this.getUrl('evaluation/add'), evaluationForm);
   }
 }

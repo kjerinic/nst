@@ -1,6 +1,6 @@
-import { Module } from './Module';
-import { Subject } from './Subject';
-import { Teacher } from './Teacher';
+import {Module} from './Module';
+import {Subject} from './Subject';
+import {Teacher} from './Teacher';
 
 export class EvaluationForm {
   Module: Module;
