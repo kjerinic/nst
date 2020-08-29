@@ -27,4 +27,9 @@ public class ModuleServiceImpl implements ModuleService {
         return moduleRepository.findAllById(Collections.singleton(id));
     }
 
+    @Override
+    public Module addModule(Module module) {
+        return moduleRepository.save(module);
+    }
+
 }

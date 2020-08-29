@@ -44,24 +44,15 @@ export class AdminService {
   }
 
   addTeacher(teacher: Teacher): Observable<boolean> {
-    return this.httpClient.post<boolean>(this.getUrl('?'),
-      {
-        teacher
-      });
+    return this.httpClient.post<boolean>(this.getUrl('teacher/add'), teacher);
   }
 
   addSubject(subject: Subject): Observable<boolean> {
-    return this.httpClient.post<boolean>(this.getUrl('?'),
-      {
-        subject
-      });
+    return this.httpClient.post<boolean>(this.getUrl('subject/add'), subject);
   }
 
   addModule(module: Module): Observable<boolean> {
-    return this.httpClient.post<boolean>(this.getUrl('?'),
-      {
-        module
-      });
+    return this.httpClient.post<boolean>(this.getUrl('module/add'), module);
   }
 
   showEvaluationResults(teacherId: number): Observable<TeacherEvaluationOverview> {

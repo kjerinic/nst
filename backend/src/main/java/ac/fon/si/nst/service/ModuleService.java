@@ -6,4 +6,5 @@ import java.util.List;
 public interface ModuleService {
     List<Module> findAll();
     List<Module> findModule(Long id);
+    Module addModule(Module module);
 }

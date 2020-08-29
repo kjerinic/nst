@@ -6,4 +6,5 @@ import java.util.List;
 public interface TeacherService {
     List<Teacher> findAll();
     List<Teacher> findTeacher(Long id);
+    Teacher addTeacher(Teacher teacher);
 }

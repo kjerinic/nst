@@ -45,8 +45,11 @@ export class TeacherComponent implements OnInit {
   private formValueToDTO(formObject: FormGroup): Teacher {
     const formValue = formObject.value;
 
-    this.teacher.firstName = formValue.firstName;
-    this.teacher.lastName = formValue.lastName;
+    this.teacher.id = 0;
+    this.teacher.firstName = formValue.FirstName;
+    this.teacher.lastName = formValue.LastName;
+
+    console.log(this.teacher);
 
     return this.teacher;
   }

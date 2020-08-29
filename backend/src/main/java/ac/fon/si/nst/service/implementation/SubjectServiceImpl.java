@@ -27,4 +27,9 @@ public class SubjectServiceImpl implements SubjectService {
         return subjectRepository.findAllById(Collections.singleton(id));
     }
 
+    @Override
+    public Subject addSubject(Subject subject) {
+        return subjectRepository.save(subject);
+    }
+
 }

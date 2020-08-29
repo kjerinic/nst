@@ -27,4 +27,9 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherRepository.findAllById(Collections.singleton(id));
     }
 
+    @Override
+    public Teacher addTeacher(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
+
 }
