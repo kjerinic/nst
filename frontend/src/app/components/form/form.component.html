@@ -1,0 +1,311 @@
+<div class="eval-form-wrap">
+  <h2>{{formTitle}}</h2>
+  <form [formGroup]="evalFormGroup">
+    <div class="eval-form">
+
+      <!--studijski program-->
+      <mat-form-field>
+        <mat-label>Izaberi studijski program</mat-label>
+        <mat-select formControlName="Module">
+          <mat-option *ngFor="let module of modules" [value]="module">
+            {{module.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!--predmet-->
+      <mat-form-field>
+        <mat-label>Izaberi predmet</mat-label>
+        <mat-select formControlName="Subject">
+          <mat-option *ngFor="let subject of subjects" [value]="subject">
+            {{subject.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!--nastavnik-->
+      <mat-form-field>
+        <mat-label>Izaberi nastavnika</mat-label>
+        <mat-select formControlName="Teacher">
+          <mat-option *ngFor="let teacher of teachers" [value]="teacher">
+            {{teacher.lastName}}, {{teacher.firstName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-stroked-button disabled>Današnji datum: {{ dateToday | date: 'dd.MM.yyyy.' }}</button>
+
+      <mat-divider class="matDividerPad"></mat-divider>
+
+      <p>Sledeća pitanja vezana su za informacije o studentu koji popunjava anketu.</p>
+
+      <!--broj sati-->
+      <mat-form-field appearance="standard">
+        <mat-label>Koliko sati nedeljno ste posvećivali ovom predmetu?</mat-label>
+        <input matInput formControlName="NumOfHours">
+        <mat-error *ngIf="hasError('required', 'NumOfHours')">Obavezno je upisati broj sati.</mat-error>
+        <mat-error *ngIf="hasError('pattern', 'NumOfHours')">Broj sati mora biti ceo broj.</mat-error>
+      </mat-form-field>
+
+      <div class="flex-container">
+
+        <!--status finansiranja -->
+        <mat-radio-group formControlName="PaymentStatus" aria-label="Status finansiranja">
+          <div class="flex-radio-group">
+            <mat-label>Status finansiranja</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="samofinansiranje">samofinansiranje</mat-radio-button>
+              <mat-radio-button value="budzet">budžet</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-divider></mat-divider>
+
+        <!--prvi put upisan predmet-->
+        <mat-radio-group formControlName="FirstEnrollment" aria-label="Da li ste prvi put upisali predmet?">
+          <div class="flex-radio-group">
+            <mat-label>Da li ste prvi put upisali predmet?</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="true">da</mat-radio-button>
+              <mat-radio-button value="false">ne</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-divider></mat-divider>
+
+        <!--položen predmet-->
+        <mat-radio-group formControlName="PassedExam" aria-label="Da li ste položili predmet?">
+          <div class="flex-radio-group">
+            <mat-label>Da li ste položili predmet?</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="true">da</mat-radio-button>
+              <mat-radio-button value="false">ne</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-divider></mat-divider>
+
+        <!--redovno pohađanje -->
+        <mat-radio-group formControlName="RegularAttendance" aria-label="Da li ste redovno pohađali nastavu?">
+          <div class="flex-radio-group">
+            <mat-label>Da li ste redovno pohađali nastavu?</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="true">da</mat-radio-button>
+              <mat-radio-button value="false">ne</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-divider></mat-divider>
+
+        <!--prosek -->
+        <mat-radio-group formControlName="AverageGradeGroup" aria-label="Prosečna ocena">
+          <div class="flex-radio-group">
+            <mat-label>Prosečna ocena</mat-label>
+            <mat-radio-button value="1">6,00-6,50</mat-radio-button>
+            <mat-radio-button value="2">6,51-7,50</mat-radio-button>
+            <mat-radio-button value="3">7.51-8,50</mat-radio-button>
+            <mat-radio-button value="4">8,51-9,50</mat-radio-button>
+            <mat-radio-button value="5">9,51-10,00</mat-radio-button>
+          </div>
+        </mat-radio-group>
+
+      </div>
+
+      <mat-divider class='matDividerPad'></mat-divider>
+
+      <p>Odaberite ocenu za svaki segment pedagoškog rada nastavnika na skali od 1 (najmanja) do 5 (najveća) ocena. (BO
+        - bez odgovora)</p>
+
+      <mat-divider></mat-divider>
+
+      <div class="flex-container">
+        <!--1 -->
+        <mat-radio-group formControlName="Question1" aria-label="Question1">
+          <div class="flex-radio-group">
+            <mat-label>Da li se predavanja/vežbe redovno održavaju?</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+        <mat-radio-group formControlName="Question2" aria-label="Question2">
+          <div class="flex-radio-group">
+            <mat-label>Da li se konsultacije redovno održavaju?</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question3" aria-label="Question3">
+          <div class="flex-radio-group">
+            <mat-label>Razumljivost i način izlaganja materije predviđene predmetom.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question4" aria-label="Question4">
+          <div class="flex-radio-group">
+            <mat-label>Usaglašenost plana predavanja/vežbi i obima materije predviđene predmetom.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question5" aria-label="Question5">
+          <div class="flex-radio-group">
+            <mat-label>Podsticanje studenata na aktivnost, kritičko razmišljanje i kreativnost.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question6" aria-label="Question6">
+          <div class="flex-radio-group">
+            <mat-label>Predavanja/vežbe nastavnika pomažu studentu da lakše savlada materiju predviđenu predmetom.
+            </mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question7" aria-label="Question7">
+          <div class="flex-radio-group">
+            <mat-label>Obim i kvalitet preporučene literature.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question8" aria-label="Question8">
+          <div class="flex-radio-group">
+            <mat-label>Nastavnik daje korisne savete za budući rad studenata.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question9" aria-label="Question9">
+          <div class="flex-radio-group">
+            <mat-label>Nastavnik odgovara na pitanja i vodi računa o studentskim komentarima.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question10" aria-label="Question10">
+          <div class="flex-radio-group">
+            <mat-label>Profesionalnost i etičnost nastavnika u komunkaciji sa studentima.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question11" aria-label="Question11">
+          <div class="flex-radio-group">
+            <mat-label>Objektivnost i nepristrasnost u oceni znanja studenta.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <mat-radio-group formControlName="Question12" aria-label="Question12">
+          <div class="flex-radio-group">
+            <mat-label>Opšti utisak.</mat-label>
+            <div class="flex-radio-buttons">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+              <mat-radio-button value="3">3</mat-radio-button>
+              <mat-radio-button value="4">4</mat-radio-button>
+              <mat-radio-button value="5">5</mat-radio-button>
+              <mat-radio-button value="6">BO</mat-radio-button>
+            </div>
+          </div>
+        </mat-radio-group>
+
+      </div>
+
+      <mat-divider class='matDividerPad'></mat-divider>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Komentar.</mat-label>
+        <input matInput formControlName="Comment">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" id="saveNewEvalForm" [disabled]="evalFormGroup.invalid"
+              (click)="saveNewEvalForm()">
+        Pošalji anketu
+      </button>
+
+    </div>
+  </form>
+</div>

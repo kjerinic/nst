@@ -19,11 +19,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
