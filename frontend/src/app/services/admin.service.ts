@@ -20,7 +20,7 @@ export class AdminService {
   }
 
   authenticateAdmin(username: string, password: string): Observable<User> {
-    return this.httpClient.post<User>(this.getUrl('?'),
+    return this.httpClient.post<User>(this.getUrl('admin/login'),
       {
         username,
         password

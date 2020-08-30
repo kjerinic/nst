@@ -16,11 +16,11 @@ const routes: Routes = [
   {path: 'form', component: FormComponent},
   {path: 'admin-login', component: AdminLoginComponent},
   {path: 'admin-logout', component: AdminLogoutComponent,
-    // canActivate: [AdminRouteGuardService]
+    canActivate: [AdminRouteGuardService]
   },
   {path: 'admin-dashboard',
     component: AdminDashboardComponent,
-    // canActivate: [AdminRouteGuardService],
+    canActivate: [AdminRouteGuardService],
     children: [
       {path: '', component: DashboardOverviewComponent},
       {path: 'add-teacher', component: TeacherComponent},
