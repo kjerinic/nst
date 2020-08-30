@@ -19,9 +19,8 @@ public class EvaluationFormController {
     @RequestMapping(value = "add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     ResponseEntity addEvaluationForm(@RequestBody EvaluationFormDTO evaluationForm){
-        System.out.println(evaluationForm);
         try {
-            return ResponseEntity.ok(evaluationForm);
+            return ResponseEntity.ok(evaluationFormService.addEvaluationForm(evaluationForm));
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error adding new evaluationForm!");
         }

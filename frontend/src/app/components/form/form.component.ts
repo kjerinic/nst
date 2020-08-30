@@ -42,28 +42,28 @@ export class FormComponent implements OnInit {
 
   private createFormGroup() {
     return this.formBuilder.group({
-      Module: [this.evalForm.Module, [Validators.required]],
-      Subject: [this.evalForm.Subject, [Validators.required]],
-      Teacher: [this.evalForm.Teacher, [Validators.required]],
-      NumOfHours: [this.evalForm.NumOfHours, [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')]],
-      AverageGradeGroup: [this.evalForm.AverageGradeGroup, [Validators.required]],
-      PaymentStatus: [this.evalForm.PaymentStatus, [Validators.required]],
-      FirstEnrollment: [this.evalForm.FirstEnrollment, [Validators.required]],
-      PassedExam: [this.evalForm.PassedExam, [Validators.required]],
-      RegularAttendance: [this.evalForm.RegularAttendance, [Validators.required]],
-      Question1: [this.evalForm.Question1, [Validators.required]],
-      Question2: [this.evalForm.Question2, [Validators.required]],
-      Question3: [this.evalForm.Question3, [Validators.required]],
-      Question4: [this.evalForm.Question4, [Validators.required]],
-      Question5: [this.evalForm.Question5, [Validators.required]],
-      Question6: [this.evalForm.Question6, [Validators.required]],
-      Question7: [this.evalForm.Question7, [Validators.required]],
-      Question8: [this.evalForm.Question8, [Validators.required]],
-      Question9: [this.evalForm.Question9, [Validators.required]],
-      Question10: [this.evalForm.Question10, [Validators.required]],
-      Question11: [this.evalForm.Question11, [Validators.required]],
-      Question12: [this.evalForm.Question12, [Validators.required]],
-      Comment: [this.evalForm.Comment]
+      module: [this.evalForm.module, [Validators.required]],
+      subject: [this.evalForm.subject, [Validators.required]],
+      teacher: [this.evalForm.teacher, [Validators.required]],
+      numOfHours: [this.evalForm.numOfHours, [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')]],
+      averageGradeGroup: [this.evalForm.averageGradeGroup, [Validators.required]],
+      paymentStatus: [this.evalForm.paymentStatus, [Validators.required]],
+      firstEnrollment: [this.evalForm.firstEnrollment, [Validators.required]],
+      passedExam: [this.evalForm.passedExam, [Validators.required]],
+      regularAttendance: [this.evalForm.regularAttendance, [Validators.required]],
+      question1: [this.evalForm.question1, [Validators.required]],
+      question2: [this.evalForm.question2, [Validators.required]],
+      question3: [this.evalForm.question3, [Validators.required]],
+      question4: [this.evalForm.question4, [Validators.required]],
+      question5: [this.evalForm.question5, [Validators.required]],
+      question6: [this.evalForm.question6, [Validators.required]],
+      question7: [this.evalForm.question7, [Validators.required]],
+      question8: [this.evalForm.question8, [Validators.required]],
+      question9: [this.evalForm.question9, [Validators.required]],
+      question10: [this.evalForm.question10, [Validators.required]],
+      question11: [this.evalForm.question11, [Validators.required]],
+      question12: [this.evalForm.question12, [Validators.required]],
+      comment: [this.evalForm.comment]
     });
   }
 
@@ -101,28 +101,28 @@ export class FormComponent implements OnInit {
   private formValueToDTO(formObject: FormGroup): EvaluationForm {
     const formValue = formObject.value;
 
-    this.evalForm.Module = formValue.Module;
-    this.evalForm.Subject = formValue.Subject;
-    this.evalForm.NumOfHours = +formValue.NumOfHours;
-    this.evalForm.Teacher = formValue.Teacher;
-    this.evalForm.AverageGradeGroup = formValue.AverageGradeGroup;
-    this.evalForm.PaymentStatus = formValue.PaymentStatus;
-    this.evalForm.FirstEnrollment = formValue.FirstEnrollment;
-    this.evalForm.PassedExam = formValue.PassedExam;
-    this.evalForm.RegularAttendance = formValue.RegularAttendance;
-    this.evalForm.Question1 = formValue.Question1;
-    this.evalForm.Question2 = formValue.Question2;
-    this.evalForm.Question3 = formValue.Question3;
-    this.evalForm.Question4 = formValue.Question4;
-    this.evalForm.Question5 = formValue.Question5;
-    this.evalForm.Question6 = formValue.Question6;
-    this.evalForm.Question7 = formValue.Question7;
-    this.evalForm.Question8 = formValue.Question8;
-    this.evalForm.Question9 = formValue.Question9;
-    this.evalForm.Question10 = formValue.Question10;
-    this.evalForm.Question11 = formValue.Question11;
-    this.evalForm.Question12 = formValue.Question12;
-    this.evalForm.Comment = formValue.Comment;
+    this.evalForm.module = formValue.module;
+    this.evalForm.subject = formValue.subject;
+    this.evalForm.numOfHours = +formValue.numOfHours;
+    this.evalForm.teacher = formValue.teacher;
+    this.evalForm.averageGradeGroup = formValue.averageGradeGroup;
+    this.evalForm.paymentStatus = formValue.paymentStatus;
+    this.evalForm.firstEnrollment = formValue.firstEnrollment;
+    this.evalForm.passedExam = formValue.passedExam;
+    this.evalForm.regularAttendance = formValue.regularAttendance;
+    this.evalForm.question1 = formValue.question1;
+    this.evalForm.question2 = formValue.question2;
+    this.evalForm.question3 = formValue.question3;
+    this.evalForm.question4 = formValue.question4;
+    this.evalForm.question5 = formValue.question5;
+    this.evalForm.question6 = formValue.question6;
+    this.evalForm.question7 = formValue.question7;
+    this.evalForm.question8 = formValue.question8;
+    this.evalForm.question9 = formValue.question9;
+    this.evalForm.question10 = formValue.question10;
+    this.evalForm.question11 = formValue.question11;
+    this.evalForm.question12 = formValue.question12;
+    this.evalForm.comment = formValue.comment;
 
     return this.evalForm;
   }

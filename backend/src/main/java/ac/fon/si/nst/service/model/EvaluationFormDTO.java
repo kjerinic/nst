@@ -5,7 +5,6 @@ import ac.fon.si.nst.domain.Subject;
 import ac.fon.si.nst.domain.Teacher;
 
 public class EvaluationFormDTO {
-    private long id;
     private Module module;
     private Teacher teacher;
     private Subject subject;
