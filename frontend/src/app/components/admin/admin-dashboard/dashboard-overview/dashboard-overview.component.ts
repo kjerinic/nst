@@ -30,8 +30,8 @@ export class DashboardOverviewComponent implements OnInit {
       });
   }
 
-  showEvaluationResults(teacherRowKey: number) {
-    this.adminService.showEvaluationResults(teacherRowKey).subscribe(data => {
+  showEvaluationResults(teacherId: number) {
+    this.adminService.showEvaluationResults(teacherId).subscribe(data => {
         this.teacherEvaluationOverview = data;
       },
       error => {

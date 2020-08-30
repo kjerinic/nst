@@ -56,8 +56,8 @@ export class AdminService {
   }
 
   showEvaluationResults(teacherId: number): Observable<TeacherEvaluationOverview> {
-    const params = new HttpParams().set('teacherId', String(teacherId));
-    return this.httpClient.get<TeacherEvaluationOverview>(this.getUrl(`?`), {params});
+    const params = new HttpParams().set('id', String(teacherId));
+    return this.httpClient.get<TeacherEvaluationOverview>(this.getUrl('evaluation/teacher'), {params});
   }
 
 }

@@ -1,5 +1,5 @@
 export class TeacherEvaluationOverview {
-  TeacherName: string;
-  AverageQuestionGrade: number;
-  Comments: string[];
+  teacherId: number;
+  averageQuestionGrade: number;
+  comments: string[];
 }

@@ -13,15 +13,14 @@
 </div>
 
 <div *ngIf="teacherEvaluationOverview" class="evaluation-container">
-  <h3>Pregled rezultata za {{teacherEvaluationOverview.TeacherName}}</h3>
   <mat-card>
     <h4>Prosečna ocena: </h4>
-    {{teacherEvaluationOverview.AverageQuestionGrade}}
+    {{teacherEvaluationOverview.averageQuestionGrade}}
   </mat-card>
   <div class="comments-container">
-    <div *ngIf="teacherEvaluationOverview.Comments.length > 0" class="evaluation-overview-comments">
+    <div *ngIf="teacherEvaluationOverview.comments.length > 0" class="evaluation-overview-comments">
       <p>Komentari:</p>
-      <mat-card *ngFor="let comment of teacherEvaluationOverview.Comments">
+      <mat-card *ngFor="let comment of teacherEvaluationOverview.comments">
         <span>{{comment}}</span>
       </mat-card>
     </div>
